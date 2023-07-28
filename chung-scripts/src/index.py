@@ -1,7 +1,15 @@
-from util import generate_image, generate_next_index
+from util.common import generate_next_index
+from util.stable_diffusion import generate_image
 
 next_index = generate_next_index()
 
-prompt = 'face lighting,bright backlight,medium breasts,super high resolution,best quality,Photos,4k,(Realistic:1.2),(knolling:1.2),1girl,shoes,nipples,solo,breasts,sneakers,(nude:1.4),long hair,jacket,(shoes removed:1.2),shorts,navel,lying,looking at viewer,pussy,full body,gym shorts,shirt,(completely nude:1.2),red jacket,barefoot,wooden floor,medium breasts,clothes removed,gun,from above,short shorts,sportswear,gym uniform,underwear,(arrange clothes neatly:1.7),bag,track jacket, <lora:knolling_20230726093614:0.7>,chill_mayuki,<lora:chill_mayuki:0.3>,mix4,<lora:mix4:0.5>,'
-generate_image(prompt, next_index)
+prompt = 'photo of the warrior Aragorn from Lord of the Rings, film grain'
+negative_prompt = "BadDream, (UnrealisticDream:1.2)"
+sampler = "DPM++ SDE Karras"
+model = "absolutereality_v16.safetensors [be1d90c4ab]"
+cfg_scale = 4
+steps = 20
+seed = 1988487711
+clip_skip = 2
+generate_image(prompt=prompt, negative_prompt=negative_prompt, sampler=sampler, model=model, cfg_scale=cfg_scale,steps=steps, seed=seed,clip_skip=2,temp_file_index=next_index)
 

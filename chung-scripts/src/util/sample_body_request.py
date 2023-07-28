@@ -45,5 +45,6 @@
         "script_name": "string",
         "send_images": True,
         "save_images": False,
-        "alwayson_scripts": {}
+        "alwayson_scripts": {},
+        "clip_skip": 2,
     }
